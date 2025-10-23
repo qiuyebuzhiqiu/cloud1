@@ -386,7 +386,7 @@
                 
                 <div class="product-content flex flex-col lg:flex-row items-center gap-10">
                     <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
-                        <img src="./picture4.png" alt="通通校园界面展示图">
+                        <img src="./picture1.png" alt="通通校园界面展示图">
                         <!-- img src="./picture1.png" alt="通通校园界面展示图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy"> -->
                     </div>
                     
@@ -960,8 +960,7 @@
             
             if (!productsContainer || !comparisonTable || !navMenu || !mobileNavMenu) return;
             
-            // 清空现有内容
-            productsContainer.innerHTML = '';
+            // 保留现有的产品内容，不清空
             comparisonTable.innerHTML = '';
             navMenu.innerHTML = '';
             mobileNavMenu.innerHTML = '';
@@ -1021,12 +1020,7 @@
                     
                     <div class="product-content flex flex-col lg:flex-row ${isReverse ? 'lg:flex-row-reverse' : ''} items-center gap-10">
                         <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
-                            <div class="image-placeholder aspect-[4/3] bg-gradient-to-br from-${color}/10 to-${color}/5 flex items-center justify-center text-${color} font-semibold text-xl p-8">
-                                <div class="text-center">
-                                    <i class="fa fa-${icon} text-5xl mb-4 opacity-70"></i>
-                                    <p>${product.name}界面展示图</p>
-                                </div>
-                            </div>
+                            <img src="./picture${index+1}.png" alt="${product.name}界面展示图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy">
                         </div>
                         
                         <div class="product-features w-full lg:w-1/2">
@@ -1052,7 +1046,7 @@
                     </div>
                 `;
                 
-                productsContainer.appendChild(productSection);
+                // 不添加新的产品区块，保留原有的HTML内容
                 
                 // 添加到对比表格
                 comparisonTable.innerHTML += `
@@ -1144,8 +1138,8 @@
             });
         }
         
-        // 页面加载时执行
-        document.addEventListener('DOMContentLoaded', loadProducts);
+        // 页面加载时执行 - 只初始化页面功能，不加载和渲染产品数据
+        document.addEventListener('DOMContentLoaded', initPageFunctions);
         
         // === 聊天助手功能 ===
         // 聊天历史记录
