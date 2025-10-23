@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国联通云智产品 - 智慧校园解决方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e60012',
+                        secondary: '#0052cc',
+                        accent: '#00cccc',
+                        dark: '#1a1a2e',
+                        light: '#f5f7fa',
+                        gray: {
+                            100: '#f7fafc',
+                            200: '#edf2f7',
+                            300: '#e2e8f0',
+                            400: '#cbd5e0',
+                            500: '#a0aec0',
+                            600: '#718096',
+                            700: '#4a5568',
+                            800: '#2d3748',
+                            900: '#1a202c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
+                        'medium': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .backdrop-blur-sm {
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .gradient-text {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .bg-gradient-blue-red {
+                background-image: linear-gradient(90deg, #0052cc, #e60012);
+            }
+        }
+    </style>
+    <style>
+        /* 基础样式 */ 
+        .unicom-portal { 
+            font-family: 'Microsoft YaHei', Arial, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        } 
+        
+        /* 导航栏样式 */ 
+        .product-nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 0; 
+            border-bottom: 2px solid #0078ff; 
+            margin-bottom: 30px; 
+        } 
+        
+        .nav-logo { 
+            font-size: 24px; 
+            font-weight: bold; 
+            color: #0078ff; 
+        } 
+        
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 30px; 
+        } 
+        
+        .nav-menu a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: 500; 
+            transition: color 0.3s; 
+        } 
+        
+        .nav-menu a:hover { 
+            color: #0078ff; 
+        } 
+        
+        /* 产品区块样式 */ 
+        .product-section { 
+            margin-bottom: 60px; 
+            padding: 30px; 
+            background: #f8f9fa; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        } 
+        
+        .product-header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+        
+        .product-header h2 { 
+            color: #0078ff; 
+            margin-bottom: 10px; 
+        } 
+        
+        .product-tag { 
+            background: #e6f2ff; 
+            color: #0078ff; 
+            padding: 5px 15px; 
+            border-radius: 15px; 
+            font-size: 14px; 
+        } 
+        
+        .product-content { 
+            display: flex; 
+            align-items: center; 
+            gap: 40px; 
+        } 
+        
+        .reverse-layout { 
+            flex-direction: row-reverse; 
+        } 
+        
+        .product-image { 
+            flex: 1; 
+            min-height: 300px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            font-weight: bold; 
+        } 
+        
+        .product-features { 
+            flex: 1; 
+        } 
+        
+        .product-features h3 { 
+            color: #333; 
+            margin-bottom: 20px; 
+        } 
+        
+        .product-features ul { 
+            list-style: none; 
+            padding: 0; 
+        } 
+        
+        .product-features li { 
+            padding: 8px 0; 
+            border-bottom: 1px solid #eee; 
+        } 
+        
+        .product-cta { 
+            margin-top: 25px; 
+            display: flex; 
+            gap: 15px; 
+        } 
+        
+        .cta-button, .detail-button { 
+            padding: 12px 25px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: all 0.3s; 
+        }
+        
+        /* AI聊天助手样式 */
+        .message-bubble {
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .user-message {
+            border-bottom-right-radius: 4px;
+        }
+        .ai-message {
+            border-bottom-left-radius: 4px;
+        }
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+        }
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            margin: 0 1px;
+            background-color: #0052cc;
+            border-radius: 50%;
+            display: block;
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        .typing-indicator span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        @keyframes typing {
+            0% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+        }
+        .transition-smooth {
+            transition: all 0.3s ease;
+        }
+        
+        
+        .cta-button { 
+            background: #0078ff; 
+            color: white; 
+        } 
+        
+        .detail-button { 
+            background: transparent; 
+            border: 2px solid #0078ff; 
+            color: #0078ff; 
+        } 
+        
+        .cta-button:hover { 
+            background: #0056cc; 
+        } 
+        
+        .detail-button:hover { 
+            background: #0078ff; 
+            color: white; 
+        } 
+        
+        /* 对比表格样式 */ 
+        .comparison-section { 
+            margin: 50px 0; 
+        } 
+        
+        .product-comparison { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+        } 
+        
+        .product-comparison th, 
+        .product-comparison td { 
+            padding: 12px; 
+            text-align: left; 
+            border: 1px solid #ddd; 
+        } 
+        
+        .product-comparison th { 
+            background: #0078ff; 
+            color: white; 
+        } 
+        
+        .product-comparison tr:nth-child(even) { 
+            background: #f8f9fa; 
+        } 
+        
+        /* 页脚样式 */ 
+        .site-footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            border-top: 1px solid #eee; 
+            margin-top: 50px; 
+        } 
+        
+        .footer-links { 
+            margin-top: 15px; 
+        } 
+        
+        .footer-links a { 
+            margin: 0 15px; 
+            color: #666; 
+            text-decoration: none; 
+        } 
+        
+        .footer-links a:hover { 
+            color: #0078ff; 
+        } 
+        
+        /* 响应式设计 */ 
+        @media (max-width: 768px) { 
+            .product-content, 
+            .reverse-layout { 
+                flex-direction: column; 
+            } 
+            
+            .nav-menu { 
+                flex-direction: column; 
+                gap: 15px; 
+            } 
+            
+            .product-nav { 
+                flex-direction: column; 
+                gap: 20px; 
+            } 
+        }
+    </style>
+</head>
+<body class="bg-light font-sans text-gray-800 overflow-x-hidden">
+    <div class="unicom-portal min-h-screen flex flex-col">
+        <!-- 导航栏 -->
+        <nav class="product-nav sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-soft transition-all-300">
+            <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="nav-logo text-xl md:text-2xl font-bold text-primary flex items-center gap-2">
+                    <i class="fa fa-cloud text-2xl"></i>
+                    <span>中国联通云智产品</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <ul class="nav-menu hidden md:flex items-center gap-6">
+                    <li><a href="#tongtong" class="text-gray-700 hover:text-primary font-medium transition-all-300">通通校园</a></li>
+                    <li><a href="#cloud-phone" class="text-gray-700 hover:text-primary font-medium transition-all-300">云智手机</a></li>
+                    <li><a href="#cloud-disk" class="text-gray-700 hover:text-primary font-medium transition-all-300">联通云盘</a></li>
+                    <li><a href="#5g-network" class="text-gray-700 hover:text-primary font-medium transition-all-300">5G随行专网</a></li>
+                </ul>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-medium absolute w-full left-0 top-full transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300">
+                <ul class="container mx-auto px-4 py-3 flex flex-col gap-3">
+                    <li><a href="#tongtong" class="block py-2 text-gray-700 hover:text-primary font-medium transition-all-300">通通校园</a></li>
+                    <li><a href="#cloud-phone" class="block py-2 text-gray-700 hover:text-primary font-medium transition-all-300">云智手机</a></li>
+                    <li><a href="#cloud-disk" class="block py-2 text-gray-700 hover:text-primary font-medium transition-all-300">联通云盘</a></li>
+                    <li><a href="#5g-network" class="block py-2 text-gray-700 hover:text-primary font-medium transition-all-300">5G随行专网</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- 产品展示区 -->
+        <main class="products-container flex-grow container mx-auto px-4 py-8">
+            <!-- 通通校园产品区块 -->
+            <section id="tongtong" class="product-section mb-20 scroll-mt-20">
+                <div class="product-header text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">通通校园 - AI学术写作助手</h2>
+                    <span class="product-tag inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                        学术研究 | 论文写作 | 知网整合
+                    </span>
+                </div>
+                
+                <div class="product-content flex flex-col lg:flex-row items-center gap-10">
+                    <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
+                        <img src="./picture1.png" alt="通通校园界面展示图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy">
+                    </div>
+                    
+                    <div class="product-features w-full lg:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">核心亮点</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-primary font-bold text-xl mt-0.5">✅</span>
+                                <span>一站式学术全流程覆盖：选题→提纲→初稿→润色→定稿</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-primary font-bold text-xl mt-0.5">✅</span>
+                                <span>知网深度整合：智能文献检索与权威文献自动引用</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-primary font-bold text-xl mt-0.5">✅</span>
+                                <span>AI学术问答引擎：自然语言提问生成学科知识图谱</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-primary font-bold text-xl mt-0.5">✅</span>
+                                <span>文献智能解析：PDF/CAJ多格式解析，准确率＞90%</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-primary font-bold text-xl mt-0.5">✅</span>
+                                <span>学术写作流水线：10分钟输出含图表/代码的初稿</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-primary font-bold text-xl mt-0.5">✅</span>
+                                <span>智能格式排版：自动适配IEEE/APA等论文格式</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="product-cta mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="https://ai.10010.com/" target="_blank" class="cta-button bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-lg shadow-soft hover:shadow-medium transition-all-300 flex-1 text-center">
+                                立即体验
+                            </a>
+                            <a href="https://ai.10010.com/learn" target="_blank" class="detail-button bg-white border border-primary text-primary hover:bg-primary/5 font-semibold py-3 px-8 rounded-lg transition-all-300 flex-1 text-center">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 云智手机产品区块 -->
+            <section id="cloud-phone" class="product-section mb-20 scroll-mt-20">
+                <div class="product-header text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">云智手机 - 云端智能终端</h2>
+                    <span class="product-tag inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                        云端应用 | AI助手 | 娱乐社交
+                    </span>
+                </div>
+                
+                <div class="product-content flex flex-col lg:flex-row-reverse items-center gap-10">
+                    <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
+                        <img src="./picture2.png" alt="云智手机界面展示图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy">
+                    </div>
+                    
+                    <div class="product-features w-full lg:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">核心亮点</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-secondary font-bold text-xl mt-0.5">🚀</span>
+                                <span>交互设计革新：云智应用直接融合桌面，一键启动</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-secondary font-bold text-xl mt-0.5">🚀</span>
+                                <span>AI智能对话：支持多模型联网搜索，专设校园版助手</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-secondary font-bold text-xl mt-0.5">🚀</span>
+                                <span>云机云盘一体化：打通联通云盘，支持整机备份</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-secondary font-bold text-xl mt-0.5">🚀</span>
+                                <span>秒装云应用：3-5秒完成大型应用云机安装</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-secondary font-bold text-xl mt-0.5">🚀</span>
+                                <span>娱乐社交优化：云视频聚合、云游戏中心、AI相机</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-secondary font-bold text-xl mt-0.5">🚀</span>
+                                <span>云信社交：AI智聊、机器匹配新玩法</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="product-cta mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="https://uphone.wo-adv.cn/cloudphone/#/home" target="_blank" class="cta-button bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-8 rounded-lg shadow-soft hover:shadow-medium transition-all-300 flex-1 text-center">
+                                立即体验
+                            </a>
+                            <a href="https://h5forphone.wostore.cn/pc/vdo/all.mp4" target="_blank" class="detail-button bg-white border border-secondary text-secondary hover:bg-secondary/5 font-semibold py-3 px-8 rounded-lg transition-all-300 flex-1 text-center">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联通云盘产品区块 -->
+            <section id="cloud-disk" class="product-section mb-20 scroll-mt-20">
+                <div class="product-header text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">联通云盘 - 极速安全云存储</h2>
+                    <span class="product-tag inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                        高速传输 | 安全存储 | 家庭共享
+                    </span>
+                </div>
+                
+                <div class="product-content flex flex-col lg:flex-row items-center gap-10">
+                    <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
+                        <img src="./picture3.png" alt="联通云盘界面展示图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy">
+                    </div>
+                    
+                    <div class="product-features w-full lg:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">核心亮点</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-accent font-bold text-xl mt-0.5">💾</span>
+                                <span>极致速度体验：下载不限速，速率达45-55MB/s</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-accent font-bold text-xl mt-0.5">💾</span>
+                                <span>安全可靠保障：央企级防护，端到端五重加密</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-accent font-bold text-xl mt-0.5">💾</span>
+                                <span>超大智能空间：最高8TB容量，行业平均4倍</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-accent font-bold text-xl mt-0.5">💾</span>
+                                <span>AI智能管理：23项AI工具，相册分类、老照片修复</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-accent font-bold text-xl mt-0.5">💾</span>
+                                <span>全场景生态融通：微信、WPS、QQ等多平台对接</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-accent font-bold text-xl mt-0.5">💾</span>
+                                <span>家庭共享功能：一人上传，全家共享数字资产</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="product-cta mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="https://pan.wo.cn/login?redirect=%2Fpan%2Ffile_list%2Fall" target="_blank" class="cta-button bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-8 rounded-lg shadow-soft hover:shadow-medium transition-all-300 flex-1 text-center">
+                                立即体验
+                            </a>
+                            <a href="https://pan.wo.cn/member" target="_blank" class="detail-button bg-white border border-accent text-accent hover:bg-accent/5 font-semibold py-3 px-8 rounded-lg transition-all-300 flex-1 text-center">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5G随行专网产品区块 -->
+            <section id="5g-network" class="product-section mb-20 scroll-mt-20">
+                <div class="product-header text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">5G随行专网 - 智能校园网络</h2>
+                    <span class="product-tag inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                        无感接入 | 安全防护 | 统一管理
+                    </span>
+                </div>
+                
+                <div class="product-content flex flex-col lg:flex-row-reverse items-center gap-10">
+                    <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
+                        <img src="./picture4.png" alt="5G网络拓扑图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy">
+                    </div>
+                    
+                    <div class="product-features w-full lg:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">核心亮点</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-dark font-bold text-xl mt-0.5">📡</span>
+                                <span>用户无感接入：自动识别身份，无需手动登录认证</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-dark font-bold text-xl mt-0.5">📡</span>
+                                <span>端到端安全：三层防护网，空口加密+终端身份管理</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-dark font-bold text-xl mt-0.5">📡</span>
+                                <span>统一高效管理：2B/2C终端统一接入，24小时运维</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-dark font-bold text-xl mt-0.5">📡</span>
+                                <span>创新技术支撑：网络切片、边缘计算(MEC)、物联网支持</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-dark font-bold text-xl mt-0.5">📡</span>
+                                <span>场景化解决方案：一卡多用，校内/外无缝访问</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                <span class="text-dark font-bold text-xl mt-0.5">📡</span>
+                                <span>跨校区协同：实现"一校多园"统一专网</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="product-cta mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="https://gec.10010.com/p/solution/1773" target="_blank" class="cta-button bg-dark hover:bg-dark/90 text-white font-semibold py-3 px-8 rounded-lg shadow-soft hover:shadow-medium transition-all-300 flex-1 text-center">
+                                立即体验
+                            </a>
+                            <a href="./5G-network.pdf" target="_blank" class="detail-button bg-white border border-dark text-dark hover:bg-dark/5 font-semibold py-3 px-8 rounded-lg transition-all-300 flex-1 text-center">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 产品对比表格 -->
+        <section class="comparison-section py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">产品功能对比</h2>
+                
+                <div class="overflow-x-auto scrollbar-hide">
+                    <table class="product-comparison w-full bg-white rounded-xl shadow-medium">
+                        <thead>
+                            <tr class="bg-gray-800 text-white">
+                                <th class="py-4 px-6 text-left font-semibold">产品名称</th>
+                                <th class="py-4 px-6 text-left font-semibold">核心功能</th>
+                                <th class="py-4 px-6 text-left font-semibold">目标用户</th>
+                                <th class="py-4 px-6 text-left font-semibold">独特优势</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-all-300">
+                                <td class="py-4 px-6 font-medium">通通校园</td>
+                                <td class="py-4 px-6">AI论文写作、文献检索、格式排版</td>
+                                <td class="py-4 px-6">高校学生、研究人员</td>
+                                <td class="py-4 px-6">知网深度整合、全流程学术支持</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-all-300">
+                                <td class="py-4 px-6 font-medium">云智手机</td>
+                                <td class="py-4 px-6">云端应用、AI对话、娱乐社交</td>
+                                <td class="py-4 px-6">学生群体、年轻用户</td>
+                                <td class="py-4 px-6">云应用秒装、多模型AI助手</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-all-300">
+                                <td class="py-4 px-6 font-medium">联通云盘</td>
+                                <td class="py-4 px-6">文件存储、备份共享、AI管理</td>
+                                <td class="py-4 px-6">全体师生、家庭用户</td>
+                                <td class="py-4 px-6">8TB超大空间、下载不限速</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-all-300">
+                                <td class="py-4 px-6 font-medium">5G随行专网</td>
+                                <td class="py-4 px-6">网络接入、安全防护、统一管理</td>
+                                <td class="py-4 px-6">学校机构、物联网设备</td>
+                                <td class="py-4 px-6">无感认证、端到端安全</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="site-footer bg-gray-800 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2 justify-center md:justify-start">
+                            <i class="fa fa-cloud"></i>
+                            <span>中国联通云智产品系列</span>
+                        </h3>
+                        <p class="text-gray-400">为智慧校园提供全方位解决方案</p>
+                    </div>
+                    
+                    <div class="footer-links flex flex-wrap justify-center gap-6">
+                        <a href="#" class="text-gray-300 hover:text-white transition-all-300">联系我们</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all-300">客服支持</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all-300" onclick="openPrivacyModal(); return false;">隐私政策</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all-300" onclick="openServiceModal(); return false;">服务协议</a>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                    <p>© 2023 中国联合网络通信有限公司 版权所有</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 服务协议模态框 -->
+    <div id="service-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white p-6 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-gray-900">服务协议</h3>
+                <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-900 text-2xl">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <p class="text-gray-600 mb-4">更新日期：2025年10月21日</p>
+                    <p class="text-gray-600">欢迎使用中国联通云智产品系列服务。本服务协议旨在规范您与我们之间的权利义务关系，请您仔细阅读并充分理解本协议内容。</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">一、服务内容</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>云存储服务：提供文件存储、备份、同步和共享功能</li>
+                        <li>网络接入服务：提供稳定、安全的网络连接</li>
+                        <li>智能校园解决方案：包括校园网络、安防监控、教学管理等</li>
+                        <li>技术支持与客户服务</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">二、用户注册与账户管理</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>用户需提供真实、准确的注册信息</li>
+                        <li>用户应妥善保管账户和密码</li>
+                        <li>用户账户仅限本人使用，不得转让或出借给他人</li>
+                        <li>发现账户异常应立即通知我们</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">三、用户行为规范</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>遵守法律法规和公序良俗</li>
+                        <li>不得利用服务从事违法违规活动</li>
+                        <li>不得干扰、破坏服务的正常运行</li>
+                        <li>尊重他人知识产权和合法权益</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">四、知识产权</h4>
+                    <p class="text-gray-600">我们拥有服务中所有内容的知识产权。未经授权，用户不得复制、修改、传播、出售或出租我们的任何内容。</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">五、服务变更与终止</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>我们有权根据业务需要调整服务内容</li>
+                        <li>用户违反协议，我们有权暂停或终止服务</li>
+                        <li>服务终止后，我们将妥善处理用户数据</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">六、免责声明</h4>
+                    <p class="text-gray-600">由于不可抗力或第三方原因导致服务中断或数据损失，我们不承担责任，但会尽力减少对用户的影响。</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">七、协议更新</h4>
+                    <p class="text-gray-600">我们可能会不时更新本服务协议。更新后的协议将在网站公布，用户继续使用服务视为接受新协议。</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">八、争议解决</h4>
+                    <p class="text-gray-600">如发生争议，双方应友好协商解决；协商不成的，任何一方均有权向有管辖权的人民法院提起诉讼。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐私政策模态框 -->
+    <div id="privacy-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white p-6 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-gray-900">隐私政策</h3>
+                <button onclick="closePrivacyModal()" class="text-gray-500 hover:text-gray-900 text-2xl">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <p class="text-gray-600 mb-4">更新日期：2025年10月21日</p>
+                    <p class="text-gray-600">欢迎使用中国联通云智产品系列。本隐私政策旨在帮助您了解我们如何收集、使用、存储和保护您的个人信息，以及您对这些信息所享有的控制权。请您仔细阅读并充分理解本政策内容。</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">一、我们收集的信息</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>个人基本信息：姓名、手机号码、邮箱地址等</li>
+                        <li>设备信息：设备型号、操作系统、浏览器类型等</li>
+                        <li>使用信息：产品使用记录、访问日志等</li>
+                        <li>位置信息：经您授权的地理位置信息</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">二、信息使用方式</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>提供、维护和改进我们的产品和服务</li>
+                        <li>发送服务通知和重要安全信息</li>
+                        <li>进行产品开发和服务优化</li>
+                        <li>保护我们的产品和用户的安全</li>
+                        <li>遵守法律法规的要求</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">三、信息保护措施</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>采用加密技术保护数据传输和存储</li>
+                        <li>实施访问控制机制，确保只有授权人员才能访问个人信息</li>
+                        <li>定期进行安全评估和漏洞扫描</li>
+                        <li>制定数据安全事件响应预案</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">四、信息共享与转让</h4>
+                    <p class="text-gray-600 mb-2">我们不会出售您的个人信息。在以下情况下，我们可能会共享您的个人信息：</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>获得您的明确同意</li>
+                        <li>遵守法律法规要求</li>
+                        <li>与我们的关联公司共享，用于提供服务和改进体验</li>
+                        <li>与授权合作伙伴共享，以提供特定服务</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">五、您的权利</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>访问您的个人信息</li>
+                        <li>更正不准确的个人信息</li>
+                        <li>删除您的个人信息</li>
+                        <li>限制个人信息的处理</li>
+                        <li>数据可携带权</li>
+                        <li>撤回同意</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">六、Cookie和类似技术</h4>
+                    <p class="text-gray-600">我们使用Cookie和类似技术来提供、保护和改进我们的产品和服务，例如记住您的偏好设置。您可以在浏览器设置中管理Cookie偏好。</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">七、未成年人保护</h4>
+                    <p class="text-gray-600">我们特别重视对未成年人个人信息的保护。若您是18周岁以下的未成年人，在使用我们的服务前，应当事先取得您的父母或法定监护人的同意。</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">八、隐私政策的更新</h4>
+                    <p class="text-gray-600">我们可能会不时更新本隐私政策。当发生重大变更时，我们将通过适当方式通知您，并在网站上公布更新后的版本。</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">九、联系我们</h4>
+                    <p class="text-gray-600">如您对本隐私政策有任何疑问、意见或建议，请通过以下方式联系我们：</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mt-2">
+                        <li>客服电话：10010</li>
+                        <li>邮箱：privacy@chinaunicom.com</li>
+                        <li>地址：江西省南昌市红谷滩新区前湖南大道</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* 模态框样式增强 */
+        #privacy-modal, #service-modal {
+            backdrop-filter: blur(4px);
+        }
+        #privacy-modal .bg-white, #service-modal .bg-white {
+            animation: fadeInUp 0.3s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* 滚动条样式 */
+        #privacy-modal ::-webkit-scrollbar,
+        #service-modal ::-webkit-scrollbar {
+            width: 6px;
+        }
+        #privacy-modal ::-webkit-scrollbar-track,
+        #service-modal ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        #privacy-modal ::-webkit-scrollbar-thumb,
+        #service-modal ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        #privacy-modal ::-webkit-scrollbar-thumb:hover,
+        #service-modal ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // 隐私政策模态框函数
+        function openPrivacyModal() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePrivacyModal() {
+            document.getElementById('privacy-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // 服务协议模态框函数
+        function openServiceModal() {
+            document.getElementById('service-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeServiceModal() {
+            document.getElementById('service-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // 点击模态框外部关闭
+        document.addEventListener('click', function(event) {
+            const privacyModal = document.getElementById('privacy-modal');
+            const serviceModal = document.getElementById('service-modal');
+            
+            if (privacyModal && !privacyModal.classList.contains('hidden') && event.target === privacyModal) {
+                closePrivacyModal();
+            }
+            
+            if (serviceModal && !serviceModal.classList.contains('hidden') && event.target === serviceModal) {
+                closeServiceModal();
+            }
+        });
+        
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const privacyModal = document.getElementById('privacy-modal');
+                const serviceModal = document.getElementById('service-modal');
+                
+                if (privacyModal && !privacyModal.classList.contains('hidden')) {
+                    closePrivacyModal();
+                } else if (serviceModal && !serviceModal.classList.contains('hidden')) {
+                    closeServiceModal();
+                }
+            }
+        });
+        // 动态加载产品数据
+        async function loadProducts() {
+            try {
+                const response = await fetch('products.json');
+                const data = await response.json();
+                
+                // 渲染产品内容
+                renderProducts(data.products);
+                
+                // 初始化页面功能
+                initPageFunctions();
+            } catch (error) {
+                console.error('加载产品数据失败:', error);
+                // 如果动态加载失败，保留静态内容作为备份
+                initPageFunctions();
+            }
+        }
+        
+        function renderProducts(products) {
+            const productsContainer = document.querySelector('.products-container');
+            const comparisonTable = document.querySelector('.product-comparison tbody');
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileNavMenu = document.querySelector('#mobile-menu ul');
+            
+            if (!productsContainer || !comparisonTable || !navMenu || !mobileNavMenu) return;
+            
+            // 清空现有内容
+            productsContainer.innerHTML = '';
+            comparisonTable.innerHTML = '';
+            navMenu.innerHTML = '';
+            mobileNavMenu.innerHTML = '';
+            
+            // 定义产品颜色
+            const productColors = {
+                'tongtong': 'primary',
+                'cloud-phone': 'secondary',
+                'cloud-disk': 'accent',
+                '5g-network': 'dark'
+            };
+            
+            // 定义产品图标（Font Awesome）
+            const productIcons = {
+                'tongtong': 'graduation-cap',
+                'cloud-phone': 'mobile',
+                'cloud-disk': 'hdd-o',
+                '5g-network': 'wifi'
+            };
+            
+            // 定义产品标记
+            const productMarks = {
+                'tongtong': '✅',
+                'cloud-phone': '🚀',
+                'cloud-disk': '💾',
+                '5g-network': '📡'
+            };
+            
+            // 渲染每个产品
+            products.forEach((product, index) => {
+                const color = productColors[product.id] || 'primary';
+                const icon = productIcons[product.id] || 'cloud';
+                const mark = productMarks[product.id] || '✅';
+                const isReverse = index % 2 === 1;
+                
+                // 添加导航项
+                navMenu.innerHTML += `
+                    <li><a href="#${product.id}" class="text-gray-700 hover:text-${color} font-medium transition-all-300">${product.name}</a></li>
+                `;
+                
+                mobileNavMenu.innerHTML += `
+                    <li><a href="#${product.id}" class="block py-2 text-gray-700 hover:text-${color} font-medium transition-all-300">${product.name}</a></li>
+                `;
+                
+                // 创建产品区块
+                const productSection = document.createElement('section');
+                productSection.id = product.id;
+                productSection.className = 'product-section mb-20 scroll-mt-20';
+                
+                productSection.innerHTML = `
+                    <div class="product-header text-center mb-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">${product.name} - ${product.tagline}</h2>
+                        <span class="product-tag inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                            ${product.category}
+                        </span>
+                    </div>
+                    
+                    <div class="product-content flex flex-col lg:flex-row ${isReverse ? 'lg:flex-row-reverse' : ''} items-center gap-10">
+                        <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
+                            <div class="image-placeholder aspect-[4/3] bg-gradient-to-br from-${color}/10 to-${color}/5 flex items-center justify-center text-${color} font-semibold text-xl p-8">
+                                <div class="text-center">
+                                    <i class="fa fa-${icon} text-5xl mb-4 opacity-70"></i>
+                                    <p>${product.name}界面展示图</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-features w-full lg:w-1/2">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">核心亮点</h3>
+                            <ul class="space-y-4">
+                                ${product.features.map(feature => `
+                                    <li class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-soft hover:shadow-medium transition-all-300">
+                                        <span class="text-${color} font-bold text-xl mt-0.5">${mark}</span>
+                                        <span>${feature}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                            
+                            <div class="product-cta mt-8 flex flex-col sm:flex-row gap-4">
+                                <button class="cta-button bg-${color} hover:bg-${color}/90 text-white font-semibold py-3 px-8 rounded-lg shadow-soft hover:shadow-medium transition-all-300 flex-1 text-center">
+                                    立即体验
+                                </button>
+                                <button class="detail-button bg-white border border-${color} text-${color} hover:bg-${color}/5 font-semibold py-3 px-8 rounded-lg transition-all-300 flex-1 text-center">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productSection);
+                
+                // 添加到对比表格
+                comparisonTable.innerHTML += `
+                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-all-300">
+                        <td class="py-4 px-6 font-medium">${product.name}</td>
+                        <td class="py-4 px-6">${product.features.slice(0, 3).join('、')}</td>
+                        <td class="py-4 px-6">${product.targetUsers.join('、')}</td>
+                        <td class="py-4 px-6">${product.description.substring(0, 25)}...</td>
+                    </tr>
+                `;
+            });
+        }
+        
+        function initPageFunctions() {
+            // 移动端菜单切换
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('opacity-0')) {
+                    mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    mobileMenuButton.innerHTML = '<i class="fa fa-times text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    mobileMenuButton.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+                }
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // 关闭移动端菜单
+                    if (mobileMenu && !mobileMenu.classList.contains('opacity-0')) {
+                        mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                        mobileMenuButton.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 滚动时导航栏效果
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.product-nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('py-2', 'shadow-medium');
+                    nav.classList.remove('py-3', 'shadow-soft');
+                } else {
+                    nav.classList.add('py-3', 'shadow-soft');
+                    nav.classList.remove('py-2', 'shadow-medium');
+                }
+            });
+            
+            // 产品区块动画
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.product-section').forEach(section => {
+                section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+                observer.observe(section);
+            });
+        }
+        
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', loadProducts);
+        
+        // === 聊天助手功能 ===
+        // 聊天历史记录
+        let chatHistory = [
+            {
+                "role": "system",
+                "content": "你是中国联通云智产品的智能助手，专注于智慧校园解决方案。请用专业、友好的语言回答用户关于产品功能、使用方法等问题。"
+            },
+            {
+                "role": "assistant",
+                "content": "您好！我是中国联通云智产品的智能助手。请问您对我们的智慧校园解决方案有什么疑问，或者需要了解哪些产品信息？"
+            }
+        ];
+
+        // 显示/隐藏聊天窗口
+        function toggleChat() {
+            const chatWidget = document.getElementById('chat-widget');
+            const chatToggle = document.getElementById('chat-toggle');
+            chatWidget.classList.toggle('hidden');
+            chatToggle.classList.toggle('hidden');
+            if (!chatWidget.classList.contains('hidden')) {
+                document.getElementById('user-input').focus();
+            }
+        }
+
+        // 关闭聊天窗口
+        function closeChatWindow() {
+            document.getElementById('chat-widget').classList.add('hidden');
+            document.getElementById('chat-toggle').classList.remove('hidden');
+        }
+
+        // 最小化聊天窗口
+        function minimizeChatWindow() {
+            document.getElementById('chat-widget').classList.add('hidden');
+            document.getElementById('chat-toggle').classList.remove('hidden');
+        }
+
+        // 添加消息到聊天窗口
+        function addMessageToChat(role, content) {
+            const isUser = role === 'user';
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-start gap-3 mb-4 ${isUser ? 'justify-end' : 'justify-start'}`;
+            
+            let messageHtml = '';
+            if (isUser) {
+                messageHtml = `
+                    <div class="message-bubble user-message bg-secondary text-white p-3">
+                        <p>${content}</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                        <i class="fa fa-user text-gray-500"></i>
+                    </div>
+                `;
+            } else {
+                messageHtml = `
+                    <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fa fa-robot text-secondary"></i>
+                    </div>
+                    <div class="message-bubble ai-message bg-secondary/5 p-3 text-dark">
+                        <p>${content}</p>
+                    </div>
+                `;
+            }
+            
+            messageDiv.innerHTML = messageHtml;
+            document.getElementById('chat-messages').appendChild(messageDiv);
+            document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+        }
+
+        // 显示正在输入状态
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'flex items-start gap-3 mb-4';
+            typingDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa fa-robot text-secondary"></i>
+                </div>
+                <div class="message-bubble ai-message bg-secondary/5 p-4 text-dark">
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            document.getElementById('chat-messages').appendChild(typingDiv);
+            document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+        }
+
+        // 移除正在输入状态
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // 清空聊天历史
+        function clearChatHistory() {
+            try {
+                // 重置本地聊天历史
+                chatHistory = [
+                    {
+                        "role": "system",
+                        "content": "你是中国联通云智产品的智能助手，专注于智慧校园解决方案。请用专业、友好的语言回答用户关于产品功能、使用方法等问题。"
+                    }
+                ];
+                
+                // 清空聊天界面
+                const chatMessages = document.getElementById('chat-messages');
+                chatMessages.innerHTML = '';
+                addMessageToChat('assistant', '您好！我是中国联通云智产品的智能助手。请问您对我们的智慧校园解决方案有什么疑问，或者需要了解哪些产品信息？');
+            } catch (error) {
+                console.error('Error clearing history:', error);
+            }
+        }
+
+        // 发送消息到AI API
+        async function sendMessageToAI(message) {
+            // 添加用户消息到历史
+            chatHistory.push({ "role": "user", "content": message });
+            addMessageToChat('user', message);
+            document.getElementById('user-input').value = '';
+            
+            // 显示正在输入
+            showTypingIndicator();
+            
+            try {
+                // 直接调用AI API
+                const response = await fetch('https://maas-api.ai-yuanjing.com/openapi/compatible-mode/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer sk-69b6662be9604e219ff4655a854481ab'
+                    },
+                    body: JSON.stringify({
+                        model: 'yuanjing-70b-chat',
+                        messages: chatHistory
+                    })
+                });
+                
+                // 移除正在输入状态
+                removeTypingIndicator();
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const aiResponse = data.choices[0].message.content;
+                    // 添加AI回复到历史
+                    chatHistory.push({ "role": "assistant", "content": aiResponse });
+                    addMessageToChat('assistant', aiResponse);
+                } else {
+                    // 显示错误消息
+                    addMessageToChat('assistant', `抱歉，无法连接到AI服务。请检查网络连接或稍后再试。`);
+                    console.error('API Error:', response.status, response.statusText);
+                }
+            } catch (error) {
+                // 移除正在输入状态
+                removeTypingIndicator();
+                // 显示错误消息
+                addMessageToChat('assistant', `抱歉，发生了网络错误，请稍后再试。`);
+                console.error('Error:', error);
+            }
+        }
+
+        // 初始化聊天功能
+        function initChatWidget() {
+            // 为聊天窗口添加事件监听器
+            document.getElementById('chat-toggle').addEventListener('click', toggleChat);
+            document.getElementById('close-chat').addEventListener('click', closeChatWindow);
+            document.getElementById('minimize-chat').addEventListener('click', minimizeChatWindow);
+            document.getElementById('clear-chat-history').addEventListener('click', clearChatHistory);
+            
+            document.getElementById('chat-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const message = document.getElementById('user-input').value.trim();
+                if (message) {
+                    sendMessageToAI(message);
+                }
+            });
+            
+            // 监听回车键发送消息
+            document.getElementById('user-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    const message = document.getElementById('user-input').value.trim();
+                    if (message) {
+                        sendMessageToAI(message);
+                    }
+                }
+            });
+        }
+
+        // 在页面加载完成后初始化聊天组件
+        document.addEventListener('DOMContentLoaded', initChatWidget);
+    </script>
+    
+    <!-- 聊天窗口 -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden">
+            <!-- 聊天窗口头部 -->
+            <div class="bg-secondary text-white p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="fa fa-robot text-xl"></i>
+                    <h3 class="font-semibold">云智产品助手</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="clear-chat-history" class="hover:text-white/80 transition-smooth" title="清空聊天历史"><i class="fa fa-trash"></i></button>
+                    <button id="minimize-chat" class="hover:text-white/80 transition-smooth" title="最小化"><i class="fa fa-minus"></i></button>
+                    <button id="close-chat" class="hover:text-white/80 transition-smooth" title="关闭"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <!-- 聊天消息区域 -->
+            <div id="chat-messages" class="p-4 h-[350px] overflow-y-auto bg-gray-50">
+                <!-- AI欢迎消息 -->
+                <div class="flex items-start gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fa fa-robot text-secondary"></i>
+                    </div>
+                    <div class="message-bubble ai-message bg-secondary/5 p-3 text-dark">
+                        <p>您好！我是中国联通云智产品的智能助手。请问您对我们的智慧校园解决方案有什么疑问，或者需要了解哪些产品信息？</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 聊天输入区域 -->
+            <div class="p-4 border-t">
+                <form id="chat-form" class="flex gap-2">
+                    <input type="text" id="user-input" class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-smooth" placeholder="请输入您的问题..." autocomplete="off">
+                    <button type="submit" class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary/90 transition-smooth">
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 聊天悬浮按钮 -->
+    <button id="chat-toggle" class="fixed bottom-6 right-6 bg-secondary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary/90 hover:scale-105 transition-smooth z-40">
+        <i class="fa fa-comment text-xl"></i>
+    </button>
+</body>
+</html>
