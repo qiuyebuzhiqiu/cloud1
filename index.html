@@ -552,6 +552,9 @@
                 <div class="product-content flex flex-col lg:flex-row-reverse items-center gap-10">
                     <div class="product-image w-full lg:w-1/2 bg-white rounded-xl overflow-hidden shadow-medium hover:shadow-hover transition-all-300">
                         <img src="./picture4.png" alt="5G网络拓扑图" class="w-full aspect-[4/3] object-cover object-center" loading="lazy">
+                        <img src="./picture2.png" alt="本地图片">
+                        <img src="./picture2.png" alt="本地图片">
+                        <img src="./picture2.png" alt="本地图片">
                     </div>
                     
                     <div class="product-features w-full lg:w-1/2">
@@ -1082,26 +1085,29 @@
                 }
             });
             
-            // 平滑滚动
+            // 平滑滚动 - 只对内部锚点链接生效
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    // 关闭移动端菜单
-                    if (mobileMenu && !mobileMenu.classList.contains('opacity-0')) {
-                        mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-                        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                        mobileMenuButton.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
-                    }
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                    // 确保只对内部锚点链接应用平滑滚动，不对外部链接应用
+                    if (this.getAttribute('href').startsWith('#') && !this.href.includes('http')) {
+                        e.preventDefault();
+                        
+                        // 关闭移动端菜单
+                        if (mobileMenu && !mobileMenu.classList.contains('opacity-0')) {
+                            mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                            mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                            mobileMenuButton.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+                        }
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
